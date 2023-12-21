@@ -197,7 +197,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 31);
             this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
+            this.button1.Text = "Tính toán";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -319,7 +319,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(111, 31);
             this.button7.TabIndex = 9;
-            this.button7.Text = "button7";
+            this.button7.Text = "Gửi";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -331,7 +331,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(111, 31);
             this.button6.TabIndex = 8;
-            this.button6.Text = "button6";
+            this.button6.Text = "Gửi";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -535,7 +535,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(111, 31);
             this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
+            this.button2.Text = "Tính toán";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -651,7 +651,7 @@
             // 
             // txtPrint
             // 
-            this.txtPrint.Location = new System.Drawing.Point(289, 506);
+            this.txtPrint.Location = new System.Drawing.Point(289, 511);
             this.txtPrint.Name = "txtPrint";
             this.txtPrint.Size = new System.Drawing.Size(365, 22);
             this.txtPrint.TabIndex = 7;

@@ -7,14 +7,14 @@ namespace arm_robot
     {
         private const double L1 = 0;
         private const double L2 = 17.3 ;
-        private const double L3 = 14 ;
+        private const double L3 = 14 +7  ;
 
         private const double div_1 = 1000;
         private const double div_2 = 2;
         private const double div_3 = 20.0 / 12.0;
 
-        private const double gain2 = 2;
-        private const double gain3 = 2;
+        private const double gain2 = 1;
+        private const double gain3 = 1;
         private const double gain1 = 1;
 
         private const double one_step = 1.8;
@@ -23,8 +23,8 @@ namespace arm_robot
         private const double Max_The2 = 85;
         private const double Min_The3 = -120;
         private const double Max_The3 = 120;
-        private const double Max_D1 = 38;
-        private const double Min_D1 = 20 ;
+        private const double Max_D1 = 39;
+        private const double Min_D1 = 25 ;
 
         private const double convertAngle = Math.PI / 180; 
 

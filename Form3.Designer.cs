@@ -100,7 +100,7 @@
             this.groupBox2.Controls.Add(this.tableLayoutPanel4);
             this.groupBox2.Controls.Add(this.tableLayoutPanel2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(145, 26);
+            this.groupBox2.Location = new System.Drawing.Point(38, 26);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(483, 604);
             this.groupBox2.TabIndex = 3;
@@ -418,7 +418,7 @@
             this.groupBox1.Controls.Add(this.tableLayoutPanel3);
             this.groupBox1.Controls.Add(this.tableLayoutPanel6);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(702, 26);
+            this.groupBox1.Location = new System.Drawing.Point(650, 26);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(483, 604);
             this.groupBox1.TabIndex = 4;

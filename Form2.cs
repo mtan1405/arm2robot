@@ -24,7 +24,8 @@ namespace arm_robot
         Step step;
         Join currentJoin;
         MyTopic topic;
-        const double beginningOfZ = 22.5 ; 
+        const double beginningOfZ = 29 ;
+            
 
         Join joinMassage;
         public Form2() 
@@ -58,8 +59,8 @@ namespace arm_robot
                 join.theta2 = Double.Parse(txtThe2.Text) * convertAngle;
                 join.theta3 = Double.Parse(txtThe3.Text) * convertAngle;
                 caculator.getPoint(point, join);
-                txtX_1.Text = point.x.ToString();
-                txtY_1.Text = point.y.ToString();
+                txtX_1.Text = Math.Round ( point.x ,2).ToString();
+                txtY_1.Text = Math.Round(point.y, 2).ToString();
                 txtZ_1.Text = point.z.ToString();
 
             }
@@ -102,15 +103,11 @@ namespace arm_robot
                 {
                     this.Print_txt();
                     convert(joins[0]);
-                    convert(joins[1]);
-
-                   
-                    
+                    convert(joins[1]);                  
                 }
                 else
                 {
-                    this.Print_txt_2();
-                    
+                    this.Print_txt_2();                    
                 }
             }
             catch (Exception e1)
@@ -124,12 +121,12 @@ namespace arm_robot
         {
             if (joins == null) return;
             txtD1_2.Text = joins.ElementAt(0).d1.ToString();
-            txtTheta2_2.Text = ((joins.ElementAt(0)).theta2 / convertAngle).ToString();
-            txtTheta3_2.Text = (joins[0].theta3 / convertAngle).ToString();
+            txtTheta2_2.Text = Math.Round(((joins.ElementAt(0)).theta2 / convertAngle),2).ToString();
+            txtTheta3_2.Text = Math.Round((joins[0].theta3 / convertAngle),2).ToString();
 
             txtD1_3.Text = (joins[1].d1 / 1).ToString();
-            txtTheta2_3.Text = (joins[1].theta2 / convertAngle).ToString();
-            txtTheta3_3.Text = (joins[1].theta3 / convertAngle).ToString();
+            txtTheta2_3.Text = Math.Round ((joins[1].theta2 / convertAngle),2).ToString();
+            txtTheta3_3.Text = Math.Round((joins[1].theta3 / convertAngle),2).ToString();
             lbSatus.Visible = false;
         }
         void Print_txt_2()

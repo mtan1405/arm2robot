@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace arm_robot
 {
+
     public partial class Form3 : Form , ObserverForm3  
     {
 
@@ -22,8 +23,8 @@ namespace arm_robot
         Join currentJoin;
         List<Join> AJoins;
         List<Join> BJoins;
-        byte send = 0; 
-        
+        byte send = 0;
+        Join jA;
         
         public Form3() 
         {
@@ -44,6 +45,8 @@ namespace arm_robot
             BJoins.Add(new Join());
             lbStatusA.Hide();
             lbStatusB.Hide();
+            button4.Text = "Gửi";
+            button1.Text = "Stop"; 
 
             
         }
@@ -104,24 +107,39 @@ namespace arm_robot
 
                 if (caculator.checkJoin(AJoins[0]))
                 {
-                    Step step = caculator.getStep(ref currentJoin, AJoins[0]);
-                    currentJoin.coppy(AJoins[0]);
+                    Step step = caculator.getStep(ref currentJoin, AJoins[0]);             
                     // message to user 
-                    lbStA.Text = "A[0] đã được chọn ";
-                   
-                    transferClasscs.serial.Write(getStringSteps(step.step_1, step.step_2, step.step_3, 'f'));
-                   // MessageBox.Show(getStringSteps(step.step_1, step.step_2, step.step_3, 'f'));
+                    lbStA.Text = "A[0] đã được chọn " + getStringSteps(step.step_1, step.step_2, step.step_3, 'f') ;
+                    if (AJoins[0].d1 <= currentJoin.d1)
+                    {
+                        transferClasscs.serial.Write(getStringSteps(step.step_1, step.step_2, step.step_3, 'k'));
+                         
+                    } else
+                    {
+                        transferClasscs.serial.Write(getStringSteps(step.step_1, step.step_2, step.step_3, 'f'));
+                    }
+                    jA = AJoins[0];
                     send = 2;
+                    currentJoin.coppy(AJoins[0]);
                     return 1;
                 }
                 else
                 {
                     if (caculator.checkJoin(AJoins[1]))
                     {
-                        Step step = caculator.getStep(ref currentJoin, AJoins[0]);
+                        Step step = caculator.getStep(ref currentJoin, AJoins[1]);                        
+                        lbStA.Text = "A[1] đã được chọn " + getStringSteps(step.step_1, step.step_2, step.step_3, 'f');
+                        if (AJoins[0].d1 <= currentJoin.d1)
+                        {
+                            transferClasscs.serial.Write(getStringSteps(step.step_1, step.step_2, step.step_3, 'k'));
+
+                        }
+                        else
+                        {
+                            transferClasscs.serial.Write(getStringSteps(step.step_1, step.step_2, step.step_3, 'f'));
+                        }
                         currentJoin.coppy(AJoins[1]);
-                        lbStA.Text = "A[1] đã được chọn ";
-                        transferClasscs.serial.Write(getStringSteps(step.step_1, step.step_2, step.step_3, 'f'));
+                        jA = AJoins[1]; 
                         send = 2; 
                         return 1;
                     }
@@ -150,9 +168,19 @@ namespace arm_robot
                     Step step = caculator.getStep(ref currentJoin, BJoins[0]);
                     currentJoin.coppy(BJoins[0]);
                     // message to user 
-                    lbStB.Text = "B[0] đã được chọn ";
-                    transferClasscs.serial.Write(getStringSteps(step.step_1, step.step_2, step.step_3, 's'));
+                    if (BJoins[0].d1 > jA.d1 )
+                    {
+                        transferClasscs.serial.Write(getStringSteps(step.step_1, step.step_2, step.step_3, 't'));
+                      // MessageBox.Show("1");
+
+                    }
+                    else
+                    {
+                        transferClasscs.serial.Write(getStringSteps(step.step_1, step.step_2, step.step_3, 's'));
+                       // MessageBox.Show("2");
+                    }
                     send = 1;
+                    
                 }
                 else
                 {
@@ -160,8 +188,18 @@ namespace arm_robot
                     {
                         Step step = caculator.getStep(ref currentJoin, BJoins[1]);
                         currentJoin.coppy(BJoins[1]);
-                        lbStB.Text = "B[1] đã được chọn ";
-                        transferClasscs.serial.Write ( getStringSteps( step.step_1, step.step_2, step.step_3, 's') );
+                        lbStB.Text = "B[1] đã được chọn ";// + getStringSteps(step.step_1, step.step_2, step.step_3);
+                        if (BJoins[1].d1 > jA.d1)
+                        {
+                            transferClasscs.serial.Write(getStringSteps(step.step_1, step.step_2, step.step_3, 't'));
+                          //  MessageBox.Show("1");
+                        }
+                        else
+                        {
+                            transferClasscs.serial.Write(getStringSteps(step.step_1, step.step_2, step.step_3, 's'));
+
+                        }
+                        
                         send = 1 ; 
                     }
                     else
